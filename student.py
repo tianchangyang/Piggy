@@ -56,11 +56,27 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
+      
+  
+
     def mike(self):
       self.fwd()
       time.sleep(2)
       self.stop()
-
+      self.right()
+      self.fwd()
+      time.sleep(2)
+      self.stop()
+      self.right()
+      self.fwd()
+      time.sleep(2)
+      self.stop()
+      self.right()
+      self.fwd()
+      time.sleep(2)
+      self.stop()
+      
+      
 
 
     def dance(self):
