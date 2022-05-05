@@ -161,8 +161,8 @@ class PiggyParent(gopigo3.GoPiGo3):
     def stop(self):
         """Cut power to the motors"""
         print("\n--STOPPING--\n")
-        self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
-
+        self.set_motor_power(self.MOTOR_LEFT, 0)
+        self.set_motor_power(self.MOTOR_RIGHT, 0)
     '''
     SENSORS
     '''
