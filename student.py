@@ -127,7 +127,7 @@ class Piggy(PiggyParent):
       return True
       
     def wall(self):
-      while true:
+      while True:
         self.read_distance()
         if self.read_distance() < 500:
           self.stop()
