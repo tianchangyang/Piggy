@@ -129,6 +129,7 @@ class Piggy(PiggyParent):
     def wall(self):
       while True:
         if self.read_distance()<400:
+          self.stop()
           self.servo(1000)
           time.sleep(.25)
           left = self.read_distance()
