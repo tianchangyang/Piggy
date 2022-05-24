@@ -128,27 +128,28 @@ class Piggy(PiggyParent):
       
     def wall(self):
       while True:
-        self.read_distance()
-        self.servo(1000)
-        time.sleep(.25)
-        left = self.read_distance()
-        self.read_distance()
-        self.servo(2000)
-        time.sleep(.25)
-        right = self.read_distance()
-        
-        if left < right:
-          self.turn_by_deg(90)
-          self.fwd()
-          time.sleep(1)
-          self.turn_by_deg(-90)
-        if left > right:
-          self.turn_by_deg(-90)
-          self.fwd()
-          time.sleep(1)
-          self.turn_by_deg(90)
+        if.self.read_distance()<400:
+          self.servo(1000)
+          time.sleep(.25)
+          left = self.read_distance()
+          self.read_distance()
+          self.servo(2000)
+          time.sleep(.25)
+          right = self.read_distance()
+          
+          if left < right:
+            self.turn_by_deg(90)
+            self.fwd()
+            time.sleep(1)
+            self.turn_by_deg(-90)
+          if left > right:
+            self.turn_by_deg(-90)
+            self.fwd()
+            time.sleep(1)
+            self.turn_by_deg(90)
         else:
           self.fwd()
+          self.servo(self.MIDPOINT)
 
 
   
