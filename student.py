@@ -128,8 +128,8 @@ class Piggy(PiggyParent):
       return True
       
     def wall(self):
-      while True:
-        if self.read_distance()<400:
+      
+        
           self.stop()
           self.servo(2000)
           time.sleep(.25)
@@ -170,31 +170,31 @@ class Piggy(PiggyParent):
           self.servo(self.MIDPOINT)
           time.sleep(.2)
           if(self.read_distance() > wall_stoping_distance):
-            self.right()
+            self.right(primary=90, counter=60)
             time.sleep(.15)
             self.fwd()
             time.sleep(.15)
-            self.left()
+            self.left(primary=90, counter=60)
             time.sleep(.15)
             self.fwd()
           else:
-            self.round()
+            self.wall()
     
         elif(right < wall_stoping_distance):
           self.stop()
           self.servo(self.MIDPOINT)
           time.sleep(.2)
           if(self.read_distance() > wall_stoping_distance):
-            self.left()
+            self.left(primary=90, counter=60)
             time.sleep(.15)
             self.fwd()
             time.sleep(.15)
-            self.right()
+            self.right(primary=90, counter=60)
             time.sleep(.15)
             self.fwd()
           else:
-            self.round()
-  
+            self.wall()
+
     def shake(self):
         """ Another example move """
         self.deg_fwd(720)
