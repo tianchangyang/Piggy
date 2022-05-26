@@ -42,7 +42,8 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "y": ("mike Test", self.mike),
-                "w": ("wall", self.wall)
+                "w": ("wall", self.wall),
+                "j": ("Detect", self.detect)
                  }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -152,7 +153,47 @@ class Piggy(PiggyParent):
           self.fwd()
           self.servo(self.MIDPOINT)
 
+    def detect(self):
+      wall_stoping_distance = 300
+      while True:
+        self.fwd()
+        self.servo(1700)
+        time.sleep(0.15)
+        right = self.read_distance()
 
+        self.servo(1300)
+        time.sleep(0.15)
+        left = self.read_distance()
+       
+        if(left < wall_stoping_distance):
+          self.stop()
+          self.servo(self.MIDPOINT)
+          time.sleep(.2)
+          if(self.read_distance() > wall_stoping_distance):
+            self.right()
+            time.sleep(.15)
+            self.fwd()
+            time.sleep(.15)
+            self.left()
+            time.sleep(.15)
+            self.fwd()
+          else:
+            self.round()
+    
+        elif(right < wall_stoping_distance):
+          self.stop()
+          self.servo(self.MIDPOINT)
+          time.sleep(.2)
+          if(self.read_distance() > wall_stoping_distance):
+            self.left()
+            time.sleep(.15)
+            self.fwd()
+            time.sleep(.15)
+            self.right()
+            time.sleep(.15)
+            self.fwd()
+          else:
+            self.round()
   
     def shake(self):
         """ Another example move """
