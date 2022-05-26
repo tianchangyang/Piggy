@@ -149,9 +149,7 @@ class Piggy(PiggyParent):
             self.fwd()
             time.sleep(1)
             self.turn_by_deg(90)
-        else:
-          self.fwd()
-          self.servo(self.MIDPOINT)
+        
 
     def detect(self):
       wall_stoping_distance = 300
